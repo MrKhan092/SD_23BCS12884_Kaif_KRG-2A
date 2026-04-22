@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap');
+ 
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes:all;
+};
+
+
+/* Add cursor pointer to buttons by default - this is coming from tailwind docs */
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+/* ── Global reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+ 
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+ 
+body {
+  margin: 0;
+  background: #0a0a0a;
+  color: #fff;
+  font-family: 'Geist', 'DM Sans', system-ui, sans-serif;
+}
+ 
+/* ── Typography ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Geist', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+ 
+code, pre, .font-mono {
+  font-family: 'JetBrains Mono', monospace !important;
+}
+ 
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #333;
+}
+ 
+/* ── Selection ── */
+::selection {
+  background: rgba(0, 255, 135, 0.2);
+  color: #fff;
+}
+ 
+/* ── Focus ring ── */
+:focus-visible {
+  outline: 2px solid rgba(0, 255, 135, 0.4);
+  outline-offset: 2px;
+}
+ 
+/* ── Panel resize handle — override react-resizable-panels default ── */
+[data-panel-resize-handle-enabled] {
+  background: #1f1f1f !important;
+  transition: background 150ms ease;
+}
+[data-panel-resize-handle-enabled]:hover {
+  background: #00ff87 !important;
+}
+ 
+/* ── Toast (react-hot-toast) overrides ── */
+.react-hot-toast > div {
+  background: #111 !important;
+  color: #fff !important;
+  border: 1px solid #1f1f1f !important;
+  border-radius: 10px !important;
+  font-family: 'Geist', sans-serif !important;
+  font-size: 13px !important;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5) !important;
+}
+ 
+/* ── Utilities ── */
+@layer utilities {
+  .text-accent { color: #00ff87; }
+  .bg-surface   { background: #111111; }
+  .border-dim   { border-color: #1f1f1f; }
+  .font-display { font-family: 'Geist', sans-serif; }
+  .font-code    { font-family: 'JetBrains Mono', monospace; }
+}
